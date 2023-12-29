@@ -42,7 +42,7 @@ chaiarrow()
 
 //+++++++++++++++++++++++++++++++++++++++++ ARROW FUNCTION
 
-//Normal Moethos removed the function keyword and added >
+//Normal Method removed the function keyword and added => after the paranthesis
 const addTwo1 = (num1, num2) => {
     return num1 + num2
 }
