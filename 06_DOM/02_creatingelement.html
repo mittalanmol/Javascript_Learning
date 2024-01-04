@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    const div = document.createElement('div')
+    console.log(div);
+    div.className="main"
+    div.id=Math.round(Math.random()*10+1)
+    div.setAttribute('title','geneated title')
+    div.style.backgroundcolor="green"
+    div.style.padding="12px"
+    // there are two different ways to add text inside a div
+
+   // div.innerText="Anmol Mittal"// One Way
+
+    const addText= document.createTextNode("Anmol Mittal") // Second Way
+    div.appendChild(addText) // addtext ko div ke andar add kr diya
+
+    document.body.appendChild(div)
+</script>
+</html>
