@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+
+<script>
+    const parent =document.querySelector('.parent')
+    // console.log(parent);
+    // console.log(parent.children); // returning the children collection
+    // console.log(parent.children[1].innerHTML); // accessing the inner nodes inside that children
+
+    // for(let i=0;i<parent.children.length;i++)
+    // {
+    //     console.log(parent.children[i].innerHTML);
+    // }
+
+    parent.children[1].style.color="orange"
+
+    console.log(parent.firstElementChild) // returns the first children of parent
+    // console.log(parent.lastElementChild); // returns the last children of parent
+
+    // Now let's access the parent using children
+    const dayone= document.querySelector('.day') // query selector return the first elment it gets
+
+    console.log(dayone);
+    console.log(dayone.parentElement) // returns the parent
+    console.log(dayone.nextElementSibling); // returns the next sibling
+
+    console.log("NODES:", parent.childNodes);
+    //A nodelist is a collection of document nodes which includes text nodes , attribute nodes and element nodes.
+    //A line break is also counted in nodelist but only first one. All subsequent line breaks are ignored by browser
+
+</script>
+</html>
