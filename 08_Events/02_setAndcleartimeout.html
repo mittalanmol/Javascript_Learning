@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!!</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+
+//    setTimeout is a timeout function with a timeout and it only works once after a specified time
+// it's structure is setTimeout(function(){},timeout)
+
+
+const sayName =function(){
+        console.log("Anmol")
+    }
+    setTimeout(sayName ,2000) // here I passes the reference of the function (not a method)
+
+    //+++++ Let's change the text of h1 using setTimeout
+
+    const chnageheading=function(){
+        document.querySelector('h1').innerHTML="Anmol Mittal"
+    }
+
+    const changeMe= setTimeout(chnageheading,2000)
+
+    //Now we will stop the timeout of above heading by clearTimeout and we are embedding it in STOP button
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+</script>
