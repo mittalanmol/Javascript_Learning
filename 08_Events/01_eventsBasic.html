@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+           <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""   ></li> <!-- onclick="alert('owl')"  but this is a bad approach --> 
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    //++++++++++++++ Medium Approach
+    // document.getElementById('owl').onclick= function(){
+    //     alert("owl CLicked")
+    // }
+    //it's not that good as it's using onclick but we should use event listener
+
+/**
+    Different prototypes of Event
+    type, timestamp, defaultPrevented
+    target, toElement, srcElement, currentTarget,
+    clientX, clientY, screenX, screenY
+    altkey, ctrlkey, shiftkey, keyCode
+**/  
+    //+++++++++++++ Best Approach    
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log('Clicked inside the UL.');
+    // },false)
+    // here false denotes the event bubbling. if we don't write false by default it will be false.
+
+/**
+    Event Propagation are of two types
+    1. Event Bubbling which is by default and is denoted by false. (it is from bottom to top)
+    2. Event Capturing it is denoted by true.(it is from top to bottom)
+**/
+    //++++++++++ Illustration of Event Bubbling
+    
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     // e.stopPropagation() // it is to stop the bubbling propagation
+    // }, false)
+
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();// it's stopiing the click to redirect to google
+    //     e.stopPropagation()// as it is inside the UL so to stop bubbling we are using it 
+    //     console.log("google clicked");
+    // }, false)
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName==='IMG') // we are checking bcz if we click on google LI it will delte the whole UL as UL is the parent of LI here
+        {
+            console.log(e.target.id);
+            let removeIt= e.target.parentNode
+            removeIt.remove()
+            // removeIt.parentNode.removeChild(removeIt) // it will do the same work as .remove() just a diff way to do things
+        }
+    })
+</script>
+</html>
