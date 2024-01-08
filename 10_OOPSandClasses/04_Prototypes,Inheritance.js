@@ -49,7 +49,9 @@ let fullName = "AnmolMittal     "
 
 fullName.truelength()
 
-"Anmol       ".truelength()
+"Anmol       ".truelength() // direct passing string
+
+
 //++++++++++++++++ Inheritance
 
 const User = {
@@ -73,6 +75,6 @@ const TASupport = {
 
 Teacher.__proto__ = User // Teacher inherits the property of User
 
-//++++++++++ Modern Syntax
+//++++++++++ Modern Syntax of Inheritance 
 
 Object.setPrototypeOf(TeachingSupport, Teacher) // TeachingSupport inherits the property of Teacher
