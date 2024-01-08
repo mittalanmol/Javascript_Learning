@@ -10,6 +10,7 @@ function createUser(username, email, password) {
     setUserName.call(this, username)
     // here when we call without call keyword the above function doesn't hold it's values in call stack after performig it's execution context
     //So we are using the keyword call to hold the reference and also using the this keyword to again store the context 
+    // as call passes the current execution context to another function
     this.email = email;
     this.password = password;
 
