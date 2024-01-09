@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+<script>
+    //Lexical Scoping \
+    // Jab inner function outer funvtion ke variable ko access kr paye to usse lexical scoping lhte hai
+
+    function outer() {
+        let username = "anmol"
+        function inner() {
+            let secret = "my123"
+            console.log("inner function:", username);
+        }
+        inner()
+    }
+    outer()  
+</script>
+
+<script>
+
+    //Closure
+    // Jab hum pura function return krte hai to pura function nhi return hota uska lexical scope bhi return hota hai 
+
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+    }
+
+    const myFunc = makeFunc(); // storing the return value in myFun 
+    myFunc();
+
+
+    //Practical Implementation of Closure
+
+    /**
+     Inefficient way to change bg color using button
+     
+    document.getElementById("orange").onclick = function(){
+            document.body.style.backgroundColor = 'orange'
+        }
+        document.getElementById("green").onclick = function(){
+            document.body.style.backgroundColor = 'green'
+        }
+**/
+
+    // Efficient way and here we have to use closure to solve the problem
+
+    function clickHandler(color) {
+
+
+        function colorreturn() {
+            document.body.style.backgroundColor = `${color}`
+        }
+        return colorreturn;
+    }
+
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+</script>
+
+
+
+</html>
